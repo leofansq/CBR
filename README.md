@@ -56,7 +56,6 @@ This code has been tested with Python 3.8.10, Pytorch 1.11.0, CUDA 11.7.
         ```
 
 ### (2) Experiments on DAIR-V2X-C
-
 * Training
     ```bash
     CUDA_VISIBLE_DEVICES=0 python train.py
@@ -65,6 +64,11 @@ This code has been tested with Python 3.8.10, Pytorch 1.11.0, CUDA 11.7.
     ```bash
     CUDA_VISIBLE_DEVICES=0 python eval.py
     ```
+* Visualization
+    ```bash
+    CUDA_VISIBLE_DEVICES=0 python eval.py --vis
+    ```
+    ![demo_dair_v2x_c](./img/demo_dair_c.jpg)
 
 ### (3) Experiments on DAIR-V2X-I
 * Training
@@ -75,6 +79,12 @@ This code has been tested with Python 3.8.10, Pytorch 1.11.0, CUDA 11.7.
     ```bash
     CUDA_VISIBLE_DEVICES=0 python eval.py --dataset dair_i --pretrained_path ./pretrained/dair_i/
     ```
+* Visualization
+    ```bash
+    CUDA_VISIBLE_DEVICES=0 python eval.py --dataset dair_i --pretrained_path ./pretrained/dair_i/ --vis
+    ```
+    ![demo_dair_v2x_i](./img/demo_dair_i.jpg)
+
 
 ## Citation
 

@@ -45,6 +45,7 @@ def get_eval_args():
     parser.add_argument("--num_workers", type=int, default=8, help="Number of cpu workers for dataloaders")
     parser.add_argument("--out_dir", type=str, default="output")
     parser.add_argument("--num_class", type=int, default=2, help="Number of classes")
+    parser.add_argument('--vis', action='store_true', help="visualization")
     configs = edict(vars(parser.parse_args()))
     configs.data_path = "./datasets/{}/training".format(configs.dataset)
 

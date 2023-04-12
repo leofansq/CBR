@@ -56,6 +56,10 @@ def evaluate():
     if not os.path.isdir(opt.out_dir):
         os.makedirs(opt.out_dir)
         os.makedirs(os.path.join(opt.out_dir, 'det'))
+    if opt.vis:
+        vis_path = os.path.join(opt.out_dir, 'vis')
+        if not os.path.isdir(vis_path):
+            os.makedirs(vis_path)
 
     # Loading Pretarined Model
     models = {}
@@ -99,8 +103,9 @@ def evaluate():
             outputs = process_batch(opt, models, inputs)
         
         # Segmentation
-        # save_topview(inputs[0]["filename"], outputs["bev_seg"], os.path.join(
-        #         opt.out_dir, 'bev_seg', "{}.png".format(inputs[0]["filename"])))
+        if opt.vis:
+            save_topview(inputs[0]["filename"], outputs["bev_seg"], os.path.join(
+                    opt.out_dir, 'bev_seg', "{}.png".format(inputs[0]["filename"])))
         bev_pred = np.squeeze(torch.argmax(outputs["bev_seg"].detach(), 1).cpu().numpy())
         bev_gt = np.squeeze(inputs[0]["bev_seg"].detach().cpu().numpy())
         bev_iou += mean_IU(bev_pred, bev_gt)
@@ -119,11 +124,8 @@ def evaluate():
         predict_txt = inputs[0]['filename'] + '.txt'
         predict_txt = os.path.join(opt.out_dir, 'det', predict_txt)
         generate_kitti_3d_detection(det_pred, predict_txt)
-
-        # vis_path = os.path.join(opt.out_dir, 'vis')
-        # if not os.path.isdir(vis_path):
-        #     os.makedirs(vis_path)
-        # show_image_with_boxes(det_pred, inputs, vis_path)
+        if opt.vis:
+            show_image_with_boxes(det_pred, inputs, vis_path)
 
 
     bev_iou /= len(test_loader)
