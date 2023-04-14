@@ -1,5 +1,7 @@
 # Calibration-free BEV Representation for Infrastructure Perception
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/calibration-free-bev-representation-for/3d-object-detection-on-dair-v2x-i)](https://paperswithcode.com/sota/3d-object-detection-on-dair-v2x-i?p=calibration-free-bev-representation-for)
+
 ![architecture](./img/CBR.png)
 
 > For technical details, please refer to:
