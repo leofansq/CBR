@@ -1,7 +1,5 @@
 # Calibration-free BEV Representation for Infrastructure Perception
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/calibration-free-bev-representation-for/3d-object-detection-on-dair-v2x-i)](https://paperswithcode.com/sota/3d-object-detection-on-dair-v2x-i?p=calibration-free-bev-representation-for)
-
 ![architecture](./img/CBR.png)
 
 > For technical details, please refer to:
@@ -81,6 +79,7 @@ This code has been tested with Python 3.8.10, Pytorch 1.11.0, CUDA 11.7.
     ```bash
     CUDA_VISIBLE_DEVICES=0 python eval.py --dataset dair_i --pretrained_path ./pretrained/dair_i/
     ```
+    > Download the pretrained model for DAIR-V2X-I from [key:mrmc](https://pan.baidu.com/s/1X6KwJVwGGr7Ac0WBzaCV_w) and put them in './pretrained/dair_i/'.
 * Visualization
     ```bash
     CUDA_VISIBLE_DEVICES=0 python eval.py --dataset dair_i --pretrained_path ./pretrained/dair_i/ --vis
