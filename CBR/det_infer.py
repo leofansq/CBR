@@ -261,10 +261,10 @@ class DetInfer(nn.Module):
 
 		xs = xs.view(
 			batch, self.max_detection,
-			1) * self.pc_range[4] / self.bev_map_size[0] + self.pc_range[0]
+			1) * (self.pc_range[3]-self.pc_range[0]) / self.bev_map_size[0] + self.pc_range[0]
 		ys = (self.bev_map_size[1]-ys.view(
 			batch, self.max_detection,
-			1)) * self.pc_range[4] / self.bev_map_size[1] + self.pc_range[1]
+			1)) * (self.pc_range[4]-self.pc_range[1]) / self.bev_map_size[1] + self.pc_range[1]
 		
 		final_box_preds = torch.cat([dim, xs, z, ys], dim=2)
 
